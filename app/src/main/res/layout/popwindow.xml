@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/mpm"/>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="APLIKASI VOTTING
+beta v.1.1
+creator :KCB"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:background="#ed0606"/>
+
+
+</RelativeLayout>
