@@ -44,9 +44,9 @@
             android:name=".Form_voting"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".total"  android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".visimisi_dpm"  android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".from_voting_dpm" android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".total_dpm" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".fromdpm.visimisi_dpm"  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".fromdpm.from_voting_dpm" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".fromdpm.total_dpm" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".menu_polling" android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".pop" android:theme="@style/AppTheme.CustomeTheme"> </activity>
     </application>

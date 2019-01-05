@@ -1,4 +1,4 @@
-package com.example.kridho.aplikasivoting;
+package com.example.kridho.aplikasivoting.fromdpm;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
@@ -11,6 +11,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.kridho.aplikasivoting.Mysingleton;
+import com.example.kridho.aplikasivoting.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
