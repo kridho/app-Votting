@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.kridho.aplikasivoting.fromdpm.from_voting_dpm;
-
 public class Voting extends AppCompatActivity {
 
     ImageView b;

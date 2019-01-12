@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.kridho.aplikasivoting.fromdpm.total_dpm;
-
 public class menu_polling extends AppCompatActivity {
 
     ImageView visi;

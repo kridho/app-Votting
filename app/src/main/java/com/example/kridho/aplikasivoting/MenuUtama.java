@@ -1,13 +1,21 @@
 package com.example.kridho.aplikasivoting;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.kridho.aplikasivoting.popup.DialogFactory;
+import com.example.kridho.aplikasivoting.popup.OneButtonDialog;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,10 +27,46 @@ public class MenuUtama extends AppCompatActivity {
     private ImageView[] dots;
     ImageView a,b,c,d;
 
+
+    String id = "", name = "";
+    ImageView btn_logout;
+    SharedPreferences sharedpreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_utama);
+        //popup
+        String isFirtslogin = getIntent().getStringExtra("first_login");
+        if (isFirtslogin!= null && isFirtslogin.equals("true")){
+            onBtnSuccessClicked();
+        } else{
+            onBtnErrorClicked();
+        }
+
+
+        btn_logout = (ImageView) findViewById(R.id.logout);
+
+        sharedpreferences = getSharedPreferences(Constant.KEY_SHAREDPREFS, Context.MODE_PRIVATE);
+        id = sharedpreferences.getString(Constant.KEY_ID,"");
+        name = sharedpreferences.getString(Constant.KEY_NAME, "");
+
+
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                // update login session ke FALSE dan mengosongkan nilai id dan username
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.clear();
+                editor.apply();
+
+                Intent intent = new Intent(MenuUtama.this, MainActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
 
         a = findViewById(R.id.visi);
         a.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +155,33 @@ public class MenuUtama extends AppCompatActivity {
         timer.scheduleAtFixedRate(new MyTimerTask(), 2000, 4000);
     }
 
+    public void onBtnSuccessClicked() {
+        OneButtonDialog oneButtonDialog =
+                DialogFactory.makeSuccessDialog(R.string.success_title,
+                        R.string.success_message,
+                        R.string.success_button_text,
+                        new OneButtonDialog.ButtonDialogAction() {
+                            @Override
+                            public void onButtonClicked() {
+
+                            }
+                        });
+        oneButtonDialog.show(getSupportFragmentManager(), OneButtonDialog.TAG);
+    }
+
+    public void onBtnErrorClicked() {
+        OneButtonDialog oneButtonDialog =
+                DialogFactory.makeErrorDialog(R.string.error_title,
+                        R.string.error_message,
+                        R.string.success_button_text,
+                        new OneButtonDialog.ButtonDialogAction() {
+                            @Override
+                            public void onButtonClicked() {
+
+                            }
+                        });
+        oneButtonDialog.show(getSupportFragmentManager(), OneButtonDialog.TAG);
+    }
 
     public class MyTimerTask extends TimerTask {
 
@@ -135,4 +206,8 @@ public class MenuUtama extends AppCompatActivity {
             });
 
 
-        }}}
+        }
+
+    }
+
+}

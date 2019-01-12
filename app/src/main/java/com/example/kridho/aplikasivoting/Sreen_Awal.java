@@ -1,6 +1,7 @@
 package com.example.kridho.aplikasivoting;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -15,7 +16,15 @@ public class Sreen_Awal extends AppCompatActivity {
             public void run(){
                 try {
                     sleep(4000);
-                    startActivity(new Intent(Sreen_Awal.this,MainActivity.class));
+
+                    SharedPreferences prefs = getSharedPreferences(Constant.KEY_SHAREDPREFS, MODE_PRIVATE);
+                    Boolean isLogin = prefs.getBoolean(Constant.KEY_SHAREDPREFS_LOGIN_STATUS, false);
+                    if (isLogin) {
+                        startActivity(new Intent(Sreen_Awal.this,MenuUtama.class));
+                    } else {
+                        startActivity(new Intent(Sreen_Awal.this,MainActivity.class));
+                    }
+
                     finish();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

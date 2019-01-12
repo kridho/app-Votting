@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.kridho.aplikasivoting.fromdpm.visimisi_dpm;
-
 public class form_visimisi extends AppCompatActivity {
 
     ImageView visi;

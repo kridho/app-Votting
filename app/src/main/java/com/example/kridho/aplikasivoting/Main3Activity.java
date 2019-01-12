@@ -1,8 +1,10 @@
 package com.example.kridho.aplikasivoting;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +22,9 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main3Activity extends AppCompatActivity {
     EditText nama,notlp,email,jurusan,tingkatsemester,pass;
     Button daftar;
@@ -31,6 +36,9 @@ public class Main3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+
+
+
 
         final SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPrefs.edit();
@@ -85,7 +93,7 @@ public class Main3Activity extends AppCompatActivity {
             final String ts = tingkatsemester.getText().toString();
             final String password = pass.getText().toString();
 
-            String url = Constant.BASE_URL + "register.php?email="+username+"&notlp="+nomer+"&email="+mail+"&jurusan="+j+"&tinggkat_semester="+ts+"&password="+password;
+            String url = Constant.BASE_URL + "register.php?nama="+username+"&notlp="+nomer+"&email="+mail+"&jurusan="+j+"&tingkat_semester="+ts+"&password="+password;
             StringRequest req = new StringRequest(Request.Method.GET, url, successListener(), errListener());
             AppController.getInstance().addToRequestQueue(req);
 
@@ -111,19 +119,14 @@ public class Main3Activity extends AppCompatActivity {
                         Log.d("response", response);
                         JSONObject json = new JSONObject(response);
 
-//                    JSONArray jsonOutput = new JSONArray(jsonopt.getString("object"));
+
                         String message = json.getString("status");
 
                         Log.d("message", message);
                         if (message.equals("OK")) {
-//                        JSONObject data = new JSONObject(json.getString("data"));
+
                             Intent intent;
-//                        */regis
-//                            editor.putString(Constant.KEY_SHAREDPREFS_USER_DATA, json.getString("data"));
-//                            editor.putString(Constant.KEY_SHAREDPREFS_LOGIN_STATUS, "1");
-////                        editor.putString(Constant.KEY_SHAREDPREFS_TOKEN, json.getString("_token")); //buat ngambil json token
-//                            editor.commit();
-//                        */regis
+
                             Toast.makeText(Main3Activity.this," REGIS SUKSES",Toast.LENGTH_LONG).show();
                             intent = new Intent(Main3Activity.this, MainActivity.class);
                             startActivity(intent);
@@ -139,6 +142,4 @@ public class Main3Activity extends AppCompatActivity {
     }
 
 
-
-
-}
+    }

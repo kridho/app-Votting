@@ -1,5 +1,21 @@
 <resources>
     <string name="app_name">Aplikasi Voting KETUA MPM-DPM</string>
 
+    <!--Main Activity-->
+    <string name="act_main_title">Android: Creating Custom Dialogs</string>
+    <string name="act_main_message">This is an example of how to create your own dialogs, using a custom style and custom actions.</string>
+    <string name="act_main_success_button_text">Success Dialog</string>
+    <string name="act_main_error_button_text">Error Dialog</string>
+    <string name="act_main_yesno_button_text">Yes/No Dialog</string>
 
+    <!--Success Dialog-->
+    <string name="success_title">Hallo,   </string>
+    <string name="success_message">selamat datang  </string>
+    <string name="success_button_text">OK, Cool</string>
+    <string name="content_description_base_dialog_icon">Imagem do Diálogo</string>
+
+    <!--Error Dialog-->
+    <string name="error_title">Hallo,   </string>
+    <string name="error_message">Selamat datang kembali  </string>
+    <string name="error_button_text">OK, no problem</string>
 </resources>
